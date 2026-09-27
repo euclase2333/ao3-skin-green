@@ -1,0 +1,1286 @@
+:root {
+  --main-bg: #E4F7DF;
+  --slightly-darker-bg: #e8f5e3;
+  --form-input-bg: #f0faea;
+  --border-color: #b8d9a8;
+  --link-color: #1e6b3b;
+  --link-hover: #0d4a2a;
+  --heading-color: #1e3a2a;
+  --text-color: #2c3e50;
+  --text-light: #4a5a4f;
+  --accent-bg: #d4ebcc;
+}
+
+body {
+  background-color: var(--main-bg);
+  color: var(--text-color);
+}
+
+#main,
+.wrapper,
+.container,
+.content,
+.region,
+.userstuff,
+.module,
+.box,
+.fieldset,
+.field,
+.form,
+.group,
+.dashboard,
+.notice,
+.comment,
+.preface,
+.chapter,
+.work,
+.blurb,
+.meta,
+.navigation,
+.actions,
+.pagination,
+.search,
+.filters,
+.listbox,
+.dropdown,
+.menu,
+.panel,
+.section,
+.article,
+.main-content,
+.primary,
+.secondary,
+.sidebar,
+.banner,
+#dashboard,
+#main-content,
+#content,
+#container,
+#works,
+#work,
+#chapter,
+#preface,
+#comments,
+#comment,
+#works-list,
+#search-results,
+#filters,
+#sidebar,
+#secondary,
+#primary,
+#inner,
+#outer,
+.inner,
+.outer,
+.white,
+.bg-white,
+.background-white {
+  background-color: var(--main-bg) !important;
+}
+
+table,
+td,
+th,
+tr,
+tbody,
+thead {
+  background-color: var(--main-bg) !important;
+  border-color: var(--border-color);
+  color: var(--text-color);
+}
+
+input,
+textarea,
+select,
+button,
+.tag,
+.label,
+.value {
+  background-color: var(--main-bg);
+  color: var(--text-color);
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="search"],
+input[type="number"],
+input[type="url"],
+textarea,
+select {
+  background-color: var(--form-input-bg) !important;
+  border: 1px solid var(--border-color);
+  color: #1a2b1f;
+}
+
+a,
+a:link,
+a:visited,
+.navigation a,
+.menu a,
+.sidebar a,
+#header a,
+#footer a,
+.pagination a,
+.dropdown a {
+  color: var(--link-color) !important;
+}
+
+a:hover,
+a:active {
+  color: var(--link-hover) !important;
+  text-decoration: underline;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.heading,
+.title,
+.header-title,
+.banner-title {
+  color: var(--heading-color) !important;
+  background-color: transparent !important;
+}
+
+hr,
+.border,
+.divider,
+.separator,
+table td,
+table th {
+  border-color: var(--border-color);
+}
+
+/* Selected/active/toggled states (e.g. a selected bookmark tag,
+   a chosen filter option) should read as deep green, not AO3's
+   default gray */
+.selected,
+.current,
+.on,
+li.selected,
+li.selected a,
+a.selected,
+.actions .selected,
+.actions li.selected a,
+.filters .selected,
+.filters li.selected a,
+input.selected {
+  background-color: var(--link-color) !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  text-shadow: none !important;
+  filter: none !important;
+  outline: none !important;
+  color: #f2faee !important;
+  border-color: var(--link-hover) !important;
+}
+
+/* Kill any leftover red border anywhere inside the sidebar / filter
+   panel (AO3 core CSS applies red border colors to several nested
+   elements here, e.g. required/emphasis states) - reset every
+   descendant first, then re-apply the green top accent afterward so
+   the accent still wins on that one edge */
+.filters,
+.filters *,
+#filters,
+#filters *,
+.sidebar,
+.sidebar *,
+#sidebar,
+#sidebar * {
+  border-color: var(--border-color) !important;
+}
+
+.filters,
+#filters,
+.sidebar,
+#sidebar {
+  border-top: 3px solid var(--link-color) !important;
+  border-bottom: 1px solid var(--border-color) !important;
+  border-left: none !important;
+  border-right: none !important;
+}
+
+.filters .module,
+.filters .group,
+.filters .box,
+.filters fieldset,
+.sidebar .module,
+.sidebar .group,
+.sidebar .box {
+  border-color: var(--border-color) !important;
+}
+
+/* Selected/checked tags inside the filter sidebar sometimes use
+   markup this skin's general .selected rule doesn't reach (checked
+   checkboxes, .current items, a currently-active tag row) - cover
+   the common variants so they read as deep green, not AO3's default
+   gray */
+.filters li.selected,
+.filters li.selected a,
+.filters .selected,
+.filters a.selected,
+.filters .tag.selected,
+.filters li.current,
+.filters li.current a,
+.filters .current,
+#filters li.selected,
+#filters li.selected a,
+#filters .selected,
+#filters li.current,
+#filters li.current a,
+#filters .current {
+  background-color: var(--link-color) !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  color: #f2faee !important;
+  border-color: var(--link-hover) !important;
+}
+
+.filters input[type="checkbox"]:checked + label,
+#filters input[type="checkbox"]:checked + label {
+  background-color: var(--link-color) !important;
+  color: #f2faee !important;
+}
+
+/* AO3's dashboard nav box (#dashboard.own - the Dashboard/Profile/
+   Works/Bookmarks/etc. menu shown on a user's own profile pages)
+   ships with a hardcoded #900 red top/bottom border in AO3's core
+   CSS. This skin never overrode it, so it was still showing
+   through. Swap it for the same green accent used elsewhere. */
+#dashboard.own {
+  border-top: 15px solid var(--link-color) !important;
+  border-bottom: 15px solid var(--link-color) !important;
+}
+
+.error,
+.warning,
+.success,
+.notice,
+.message,
+.flash,
+.alert,
+.field_with_errors {
+  background-color: var(--accent-bg) !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  border: none !important;
+  border-left: 4px solid var(--link-color) !important;
+  border-radius: 0 !important;
+  color: var(--heading-color) !important;
+}
+
+.stats,
+.meta,
+.byline,
+.datetime,
+.counts,
+.kudos,
+.hits,
+.comments-count {
+  color: #2f4d3a !important;
+}
+
+pre,
+code,
+.code,
+.quote,
+blockquote {
+  background-color: var(--accent-bg);
+  color: var(--heading-color);
+  border: 1px solid #a8c99a;
+}
+
+.dropdown-menu,
+.popover,
+.tooltip,
+.modal,
+.overlay {
+  background-color: var(--main-bg);
+  border: 1px solid #a8c99a;
+}
+
+.dropdown-menu a,
+.popover a,
+.tooltip a,
+.modal a {
+  color: var(--link-color);
+}
+
+/* AO3's edit/new-work forms wrap almost everything in real
+   <form>/<fieldset>/<legend>/<dl> tags, not the .form/.fieldset
+   classes this skin already targets. A very light translucent
+   tint (rather than flat transparent) keeps some visual layering
+   between sections without reverting to solid AO3 gray. */
+form,
+fieldset {
+  background-color: rgba(60, 80, 60, 0.05) !important;
+  background-image: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+fieldset fieldset,
+fieldset dl dl,
+form dl {
+  background-color: transparent !important;
+  background-image: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+fieldset legend {
+  background-color: transparent !important;
+  background-image: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: var(--heading-color) !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+}
+
+form dl dt,
+form dl dd,
+fieldset dl dt,
+fieldset dl dd {
+  background-color: transparent !important;
+  background-image: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: var(--text-color) !important;
+}
+
+.sidebar,
+.navigation,
+.menu,
+.nav,
+.navbar,
+.header-nav,
+.footer-nav {
+  background-color: var(--slightly-darker-bg) !important;
+  border-color: var(--border-color);
+}
+
+/* The rule above gives any .navigation/.menu element a slightly
+   darker green (--slightly-darker-bg) - that includes the footer's
+   own link-column lists (ul.navigation under "Customize", "About
+   the Archive", etc.), which is exactly what produced the mismatched
+   color-block seam at the bottom of the page. Force those back to
+   the plain page background so the footer reads as one flat area. */
+#footer .navigation,
+#footer ul.navigation,
+#footer .menu,
+#footer .module,
+.footer .navigation,
+.footer ul.navigation,
+.footer .menu,
+.footer .module {
+  background-color: var(--main-bg) !important;
+  background-image: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.button,
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+.action,
+.action-button,
+.actions a,
+.actions a:link,
+.actions a:visited,
+.actions input,
+.actions label,
+.pagination a,
+li.bookmark .actions a,
+li.subscribe .actions a,
+.mailbox .actions a,
+.inbox .actions a,
+.thread .actions a,
+#comments .actions a,
+.filters .actions a,
+.filters button,
+.filters input[type="submit"],
+.mce-btn button,
+.mce-toolbar .mce-btn,
+div.mce-btn button {
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  border: 1px solid var(--link-color) !important;
+  border-radius: 0 !important;
+  color: var(--link-color) !important;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: normal;
+  font-size: 0.85em;
+  padding: 0.35em 0.9em;
+  text-decoration: none !important;
+}
+
+.button:hover,
+button:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover,
+input[type="reset"]:hover,
+.action:hover,
+.action-button:hover,
+.actions a:hover,
+.actions input:hover,
+.pagination a:hover,
+li.bookmark .actions a:hover,
+li.subscribe .actions a:hover,
+.mailbox .actions a:hover,
+.inbox .actions a:hover,
+.thread .actions a:hover,
+#comments .actions a:hover,
+.filters .actions a:hover,
+.filters button:hover,
+.filters input[type="submit"]:hover,
+.mce-btn button:hover,
+.mce-toolbar .mce-btn:hover,
+div.mce-btn button:hover {
+  background-color: var(--link-color) !important;
+  color: #f2faee !important;
+  border-color: var(--link-hover) !important;
+  text-decoration: none !important;
+}
+
+/* AO3's footer link lists are literally <ul class="navigation
+   actions">, so the button styling above (border, padding, all-caps)
+   was being applied to Site Map / Terms of Service / etc. purely
+   because they share the .actions class with real action buttons.
+   Strip all of that back down to plain text links, and force normal
+   sentence case instead of the button's uppercase transform. The
+   #footer id gives this enough specificity to win over the earlier
+   .actions a rule regardless of source order. */
+#footer a,
+#footer .actions a,
+#footer .navigation a,
+#footer .navigation.actions a,
+#footer ul.navigation a,
+.footer a,
+.footer .actions a,
+.footer .navigation a,
+.footer .navigation.actions a,
+.footer ul.navigation a {
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+  font-weight: normal !important;
+  font-size: 1em !important;
+  display: inline !important;
+}
+
+#footer .actions a:hover,
+#footer .navigation.actions a:hover,
+.footer .actions a:hover,
+.footer .navigation.actions a:hover {
+  background-color: transparent !important;
+  color: var(--link-hover) !important;
+  text-decoration: underline !important;
+}
+
+a.tag:not([class*="character"]),
+.tag:not([class*="character"]) {
+  background-color: var(--accent-bg) !important;
+  color: var(--heading-color) !important;
+  border: 1px solid #a8c99a;
+}
+
+[class^="character"] a.tag,
+.character a.tag {
+  background-color: var(--accent-bg) !important;
+  color: var(--heading-color) !important;
+  border: 1px solid #a8c99a;
+}
+
+[class^="relationship"] a.tag,
+.relationship a.tag {
+  background-color: #8aad77 !important;
+  color: #ffffff !important;
+  border: 1px solid #6d9159 !important;
+  font-weight: 500;
+}
+
+[class^="relationship"] a.tag[href*="%20*a*%20"] {
+  background-color: #7a9f6a !important;
+  color: #ffffff !important;
+  border: 1px solid #5f804f !important;
+}
+
+[class^="relationship"] a.tag[href*="%20*~*%20"] {
+  background-color: #8aad77 !important;
+  color: #ffffff !important;
+}
+
+tr:nth-child(even) td,
+tr:nth-child(even) th {
+  background-color: #def2d6 !important;
+}
+
+#footer,
+.footer {
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  color: #1a2b1f !important;
+}
+
+/* THE header background lives on this one rule, on the outermost
+   header container, and nowhere else in this file. AO3's actual
+   header markup has the title and both nav lists as plain sibling
+   elements with no shared wrapper, so painting the green separately
+   on each inner element risked a seam of the page's light color
+   showing through any margin/whitespace between them. Painting
+   #header itself removes that possibility: the color is one
+   rectangle set once, so there is no gap it could ever show through. */
+#header,
+#header.region {
+  background-color: var(--link-color) !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  border-bottom: 2px solid var(--link-hover) !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  /* Was 1.4em top/bottom - that, stacked on top of the heading's own
+     padding-bottom AND both nav rows' own vertical padding below,
+     is what made the whole dark-green band read as too tall with a
+     lot of dead vertical space. Tightened here; the heading and the
+     two nav rows below are tightened to match further down. */
+  padding: 0.5em 0 !important;
+  text-align: center !important;
+  color: #f2faee !important;
+}
+
+#footer {
+  border-top: 2px solid var(--link-color) !important;
+  padding: 2.5em 1.5em !important;
+}
+
+/* Hide the round AO3 image logo entirely */
+#header .logo,
+#header img.logo,
+#header .heading sup {
+  display: none !important;
+}
+
+/* Title is now a pre-rendered image (Headline.png) instead of live text
+   or :before/:after content. AO3's skin sanitizer strips @font-face and
+   only allows url() to point at image files (.jpg/.png/.gif) - never at
+   font files or data: URIs - so a custom typeface can't be shipped as a
+   font at all. Baking the exact typography into a PNG and showing it as
+   this link's background-image sidesteps that: url() to an image host
+   IS allowed, so this is the one way the intended look survives
+   AO3's filter untouched, pixel for pixel, for every reader regardless
+   of what fonts they have installed. */
+#header .heading {
+  float: none !important;
+  margin: 0 auto !important;
+  max-width: 60em !important;
+  /* Was 0.6em - trimmed along with the rest of the header's vertical
+     rhythm (see #header and the .primary/.user row padding). */
+  padding-bottom: 0.25em !important;
+}
+
+#header .heading a,
+#header .heading a:link,
+#header .heading a:visited {
+  display: block !important;
+  width: 100% !important;
+  /* Total height of the old 3-line text block (2.3em font-size * 1.15
+     line-height * 3 lines ≈ 7.9em) - keeps the header's vertical rhythm
+     the same as before. background-size: contain scales Headline.png
+     to fit inside this box without ever stretching or cropping it. */
+  height: 8em !important;
+  margin: 0 auto !important;
+  background-image: url("https://raw.githubusercontent.com/euclase2333/ao3-skin-green/main/Headline.png") !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  background-size: contain !important;
+  text-indent: 0 !important;
+  text-decoration: none !important;
+}
+
+/* The real "Archive of Our Own" link text is left in place for screen
+   readers/SEO, just hidden off-screen - it's no longer drawn as visible
+   :before/:after text now that Headline.png carries the whole title */
+#header .heading a span {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  padding: 0 !important;
+  border: 0 !important;
+}
+
+#header .heading a:hover {
+  opacity: 0.85 !important;
+}
+
+#footer a,
+.footer a {
+  color: var(--link-color) !important;
+}
+
+#footer a:hover,
+.footer a:hover {
+  color: var(--link-hover) !important;
+}
+
+/* #header sits on the dark green band, so its default link color has
+   to be light, not dark green - the more specific rules further down
+   (top nav bar links, dropdown menu links) override this per
+   context as needed. */
+#header a,
+.header a {
+  color: #f2faee !important;
+}
+
+#header a:hover,
+.header a:hover {
+  color: #ffffff !important;
+}
+
+/* AO3's real header markup wraps the "Fandoms / Browse / Search /
+   About" list (and, on the logged-in header, the "Hi, user! / Post
+   / Log Out" list) each in their own <nav> landmark - they are NOT
+   direct children of #header. A `display:flex` + `order` rule on
+   #header therefore does nothing to them (CSS `order` only reorders
+   a flex container's own direct children), while it WAS being
+   applied to the .heading (which is a direct child). The mismatch
+   is exactly what pushed the two nav bars above the title and broke
+   the strip into fragments. Fixed by dropping the flex/order
+   approach entirely: #header is left as a normal block container,
+   so the title and the two nav bars simply stack in the order AO3
+   already puts them in, and the full-width green styling below
+   (which uses descendant selectors, so it reaches .user/.primary no
+   matter how deeply they're nested) is what makes each one read as
+   one continuous bar. */
+#header {
+  display: block !important;
+}
+
+/* Belt-and-braces against any remaining seam: paint the <nav>
+   landmark(s) wrapping .user / .primary the SAME dark green as the
+   bar inside them (not transparent), and strip any margin/padding
+   they might carry. If the ul inside doesn't reach 100% of the nav
+   for any reason, the nav's own green shows through underneath it
+   instead of the page's cream background - so there's no gap color
+   left for a seam to appear in, no matter how the two are nested */
+#header nav {
+  display: block !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background-color: var(--link-color) !important;
+  background-image: none !important;
+  border: none !important;
+}
+
+/* Anything else sitting directly in #header alongside the heading
+   (a clearfix div, a second nav landmark we haven't named above,
+   etc.) gets the same treatment so it can never be the source of a
+   cream-colored gap between the two bars */
+#header > *:not(.heading):not(h1) {
+  margin: 0 !important;
+}
+
+/* One continuous full-width dark-green band replacing AO3's red
+   header bar - covers both the "Hi, user! / Post / Log Out" row
+   and the "Fandoms / Browse / Search / About" row so they read as
+   a single strip, not a stack of separate rounded boxes.
+
+   These rows are now flex containers (justify-content handles the
+   left/right alignment), not text-align + floated/inline-block
+   items. That combination is why the alignment kept failing no
+   matter what text-align said: AO3's own default stylesheet floats
+   these list items and the search form, and a floated element is
+   taken completely out of normal flow - text-align on the parent
+   has zero effect on it, no matter how many times it's set or how
+   specific the selector is. Flex sidesteps that whole category of
+   bug: flex children ignore `float` entirely, and `justify-content`
+   / `margin-left: auto` give real, direct control over where each
+   item sits. (This structure mirrors the header layout used by the
+   ZerafinaCSS "neos" AO3 skin - github.com/ZerafinaCSS/neos, MIT
+   licensed - translated to this skin's own palette.) */
+#header .user,
+#header ul.user,
+#header .primary,
+#header ul.primary {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  width: 100% !important;
+  max-width: none !important;
+  box-sizing: border-box !important;
+  margin: 0 !important;
+  /* Kept as a positioned container so any dropdown flyout nested
+     several levels inside this row (which anchors itself with
+     top:100%/left:0, further down this file) always measures itself
+     against this row rather than against some further-out ancestor. */
+  position: relative !important;
+  background-color: var(--link-color) !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  /* Was 0.55em top/bottom on each of the two rows - that's roughly
+     an extra 1.1em of dead green space across the two rows combined,
+     which is most of what made the band under the title feel too
+     tall. 0.35em keeps the rows readable without the excess air. */
+  padding: 0.35em 1em !important;
+}
+
+/* Default AO3 layout puts the account row (Hi, user! / Post / Log
+   Out) on the right and the site nav row (Fandoms / Browse / Search
+   / About) on the left. */
+#header .user,
+#header ul.user {
+  justify-content: flex-end !important;
+}
+
+#header .primary,
+#header ul.primary {
+  justify-content: flex-start !important;
+}
+
+/* Quick-search box: a normal flex item inside ul.primary, pushed to
+   the right end of the SAME line as Fandoms/Browse/Search/About with
+   margin-left:auto - it stays on that line, just right-aligned on it,
+   which puts it under the right-aligned end of the Post/Log Out row
+   above (both rows share the same #header/.primary/.user padding).
+
+   All of this element's own overrides are now on ONE rule, further
+   down past the shared li-divider rule (see the comment there for
+   why that used to be split into two identical-specificity blocks
+   relying on file order to win the tie - that's the fragile part
+   that was actually causing margin-left:auto to silently lose). */
+
+/* The <form> AO3 nests inside li.search gets its own small flex
+   context so the input and (hidden) submit button/tooltip line up
+   on one row instead of stacking - no positioning of its own is
+   needed since its parent li.search now handles placement. min-width
+   and max-width, same reasoning as on li.search just above: without
+   them this form's own default min-width:auto would floor it at the
+   input's full fixed width, which is exactly what forced the row
+   wider than the viewport. */
+#header form#search {
+  display: flex !important;
+  align-items: center !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  background: none !important;
+  box-shadow: none !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+}
+
+/* Paint every element the search form/box wraps the exact same green
+   as the header itself, so no nested AO3 default background (forms
+   and fieldsets elsewhere in this file get a light translucent tint)
+   can ever show through as a mismatched sliver around the input's
+   border. The input itself re-applies its own lighter fill further
+   below so typed text stays readable. */
+#header form#search,
+#header form#search *,
+#header li.search,
+#header li.search * {
+  background-color: var(--link-color) !important;
+  background-image: none !important;
+}
+
+/* Flat items, no individual pill/box - just a thin divider line
+   between entries so the strip reads as one bar, not fragments.
+   Flex children lay themselves out on their own; no float/inline-
+   block/vertical-align juggling needed any more. */
+#header .primary li,
+#header ul.primary > li,
+#header .user li,
+#header ul.user > li {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  background: none !important;
+  background-image: none !important;
+  border: none !important;
+  border-right: 1px solid rgba(242, 250, 238, 0.35) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 1em !important;
+  margin: 0 !important;
+}
+
+/* #greeting (the "Hi, user!" nav landmark) and #login (its logged-out
+   equivalent, wrapping #small_login) aren't <li> elements themselves,
+   so the rule above doesn't reach them - give them the same anchor so
+   #small_login, which AO3 nests inside #login rather than inside an
+   <li>, has a positioned ancestor to drop down from too. */
+#header #greeting,
+#header #login {
+  position: relative !important;
+}
+
+/* This is why the search box wasn't actually right-aligned: this
+   rule and the shared li-divider rule right above both matched
+   li.search at the EXACT same specificity - #header (1 id) + one
+   class + one type, counted either as .primary/li or li/.search.
+   With a tie, CSS falls back to "whichever is later in the file
+   wins" for each individual property, and a previous version of
+   this stylesheet tried to win that tie by literally repeating this
+   rule again after the divider rule. That's fragile by nature - it
+   depends on nobody ever reordering the file, and it's exactly the
+   kind of thing that's easy to lose track of while editing (as
+   happened here: the margin-left:auto meant to win the tie ended up
+   not taking effect).
+
+   The real fix is to stop relying on a tie at all. Adding `ul.primary
+   >` in front of `li.search` costs one more type selector and one
+   more class, making this selector's specificity (1 id, 2 classes,
+   2 types) strictly higher than the divider rule's (1 id, 1 class,
+   1 type) - so this rule wins on SPECIFICITY, unconditionally,
+   no matter which one is written first or last in the file. */
+#header ul.primary > li.search,
+#header .primary > li.search {
+  margin-left: auto !important;
+  margin-right: 0 !important;
+  border: none !important;
+  border-left: 1px solid rgba(242, 250, 238, 0.35) !important;
+  padding-left: 1em !important;
+  padding-right: 0 !important;
+  background-color: var(--link-color) !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  flex-shrink: 1 !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+}
+
+#header .primary li:last-child,
+#header ul.primary > li:last-child,
+#header .user li:last-child,
+#header ul.user > li:last-child {
+  border-right: none !important;
+}
+
+/* IMPORTANT: this must ONLY reach the visible top-level bar text
+   (Fandoms / Browse / Search / About / Hi, user! / Post / Log Out) -
+   never the flyout menu links nested one level deeper inside them.
+   A plain descendant selector like `#header .primary a` used to also
+   match those nested links (since a descendant selector matches at
+   any depth), painting them the same near-white as the top bar - and
+   because the flyout's own background is a near-white cream, that
+   produced literally unreadable white-on-white text. Using ONLY the
+   `> li > a` child-combinator chain guarantees this rule can never
+   reach anything nested inside a further `<ul>`, no matter what
+   classes AO3 puts on that inner menu. */
+#header .primary > li > a,
+#header ul.primary > li > a,
+#header .user > li > a,
+#header ul.user > li > a,
+#header #greeting > a {
+  display: inline-block !important;
+  background: none !important;
+  background-image: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: #f2faee !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.1em !important;
+  font-size: 0.85em !important;
+}
+
+#header .primary > li > a:hover,
+#header ul.primary > li > a:hover,
+#header .user > li > a:hover,
+#header ul.user > li > a:hover,
+#header #greeting > a:hover {
+  background: none !important;
+  color: #ffffff !important;
+  text-decoration: underline !important;
+}
+
+/* Hide the little user-icon image next to "Hi, user!" */
+#header .user .icon,
+#header ul.user .icon,
+#header #greeting .icon,
+#header .user img,
+#header ul.user img,
+#header #greeting img {
+  display: none !important;
+}
+
+/* Search input - AO3's real markup for the header quick-search box
+   (confirmed against otwarchive's own public/503.html) is:
+     <input aria-describedby="site_search_tooltip" class="text"
+            id="site_search" name="work_search[query]" type="text">
+   So "#site_search" IS the input itself, not a wrapper - matching it
+   directly (an ID selector) is both correct AND gives this rule the
+   highest specificity of any input rule in this file, which matters
+   because an earlier rule in this stylesheet used to target
+   "#header #site_search" too (thinking it was a wrapper) and set
+   border:none/background:none on it - since that rule sat right next
+   to this one with the exact same #header-#site_search specificity,
+   whichever of the two happened to come LATER in the file always won
+   outright and made the box invisible regardless of what this rule
+   said. That earlier rule has been fixed to no longer touch
+   #site_search at all, and the fallback class/attribute selectors
+   below are kept so the same fill/border still lands on this input
+   even if AO3 ever changes the field's id on a particular page. */
+#header .search input,
+#header #site_search,
+#header input.text,
+#header input[type="text"],
+#header input[type="search"] {
+  background-color: var(--form-input-bg) !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  /* Was a bright near-white (#f2faee) border, which reads as a harsh
+     outline against the dark green header - switched to the same
+     --border-color used on every other input across the rest of the
+     skin, so the header's search box matches the site's own input
+     style instead of standing out with a mismatched frame. */
+  border: 1px solid var(--border-color) !important;
+  border-radius: 0 !important;
+  color: #1a2b1f !important;
+  padding: 0.3em 0.6em !important;
+  margin: 0 !important;
+  /* Was a fixed `width: 16em`, with only `max-width: 40vw` as a
+     ceiling and nothing as a floor - on any viewport narrower than
+     about 40em, 16em no longer fit next to Fandoms/Browse/Search/
+     About and, combined with `flex-shrink: 0` up on li.search/
+     form#search (also fixed above), had nothing telling it to give
+     up that width, so it forced the whole row past the edge of the
+     viewport instead of shrinking or wrapping.
+
+     `width: 100%` + `max-width: 16em` makes 16em a ceiling, not a
+     fixed value: the input fills whatever space it's actually given
+     by its now-shrinkable flex ancestors, up to 16em when there's
+     room for it, and shrinks along with them when there isn't -
+     never wider than what actually fits. min-width keeps it from
+     shrinking to the point of being unusable. */
+  width: 100% !important;
+  max-width: 16em !important;
+  min-width: 6em !important;
+  box-sizing: border-box !important;
+}
+
+#header .search input:focus,
+#header #site_search:focus,
+#header input.text:focus,
+#header input[type="text"]:focus,
+#header input[type="search"]:focus {
+  border-color: #ffffff !important;
+  outline: none !important;
+}
+
+/* The quick-search submit button would otherwise inherit this skin's
+   general button style (a var(--link-color) border and text on a
+   transparent background) - on top of the header's own solid
+   var(--link-color) fill that would make it an invisible green-on-
+   green box. Hidden here the same way ZerafinaCSS's "neos" skin
+   handles it; pressing Enter in the field still submits the search. */
+#header #search .button,
+#header #search span.actions,
+#header li.search .button,
+#header li.search span.actions {
+  display: none !important;
+}
+
+/* Dropdown ("flyout") menus: Hi, user! / Post / Log Out, and each of
+   Fandoms / Browse / Search / About.
+
+   This is now copied structurally from a known-working, real AO3
+   site skin's dropdown CSS (ZerafinaCSS "neos",
+   github.com/ZerafinaCSS/neos, MIT licensed) instead of guessed at
+   again. Two things from that reference turned out to be exactly
+   what previous attempts here got backwards:
+
+   1. The box itself uses `width: unset` + `min-width: 15em`, NOT a
+      fixed width, NOT width:max-content, and NOT no width rule at
+      all. AO3's own default width for this box is apparently
+      narrower than most menu text, and every version of this skin
+      so far either fought that with a conflicting width scheme
+      (too narrow, text overflowed) or left it completely alone
+      (still too narrow, since nothing was raising the floor). This
+      is the missing middle ground: let the box size itself
+      naturally, but guarantee it's never narrower than 15em.
+
+   2. `display: block` (with NO width set) goes on the <a>, never on
+      the <li>, and the <li> gets no width/box-sizing/display
+      overrides at all. An <li> is already block-level by default
+      and already fills its container on its own - forcing
+      `width: 100% !important` on it (and on the <a> at the same
+      time) was pure redundancy that keeps circularly interacting
+      with whatever width the parent box resolves to, which is what
+      kept squashing the row height/text on every previous attempt.
+      Removing that redundancy is what actually fixes it, for good. */
+/* li.dropdown needs to be the positioned ancestor itself (not just
+   the row it sits in) so the ::after buffer directly below can be
+   anchored to THIS trigger's own box, not to the whole nav row. */
+#header li.dropdown {
+  position: relative !important;
+}
+
+/* Belt-and-suspenders on top of the margin-top:0 fix above: an
+   invisible 12px strip glued to the bottom of the trigger, generated
+   as part of li.dropdown itself. Because it's the trigger's own
+   generated content, moving the mouse into this strip keeps
+   li.dropdown:hover true (AO3's own base CSS is what actually shows
+   the menu on that hover), so even a stray extra pixel of gap from
+   theme overrides elsewhere, sub-pixel rounding, or a future change
+   can't reopen this bug - the hover chain never has anywhere left
+   to break. */
+#header li.dropdown::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 12px;
+}
+
+#header li.dropdown .menu,
+#header li.dropdown .dropdown-menu,
+#header li.dropdown > ul,
+#small_login {
+  position: absolute !important;
+  top: 100% !important;
+  left: 0 !important;
+  right: auto !important;
+  /* Was 2px. That 2px lived in the dead zone between the trigger
+     link's bottom edge and the menu box's top edge - it belongs to
+     neither element, so the instant the mouse crossed it :hover
+     broke and the menu closed before it could even be reached. 0
+     means the box sits flush against the trigger with no gap for
+     the pointer to fall through. */
+  margin-top: 0 !important;
+  z-index: 1000 !important;
+  width: unset !important;
+  min-width: 15em !important;
+  padding: 0.25em 0 !important;
+  background-color: var(--form-input-bg) !important;
+  background-image: none !important;
+  border: 1px solid var(--border-color) !important;
+  box-shadow: 0 2px 6px rgba(30, 58, 42, 0.18) !important;
+  border-radius: 0 !important;
+  color: var(--heading-color) !important;
+  font-size: 0.95em !important;
+}
+
+/* The rightmost trigger in each row (Log Out's row: "Log Out" itself
+   has no flyout, so "Post" is rightmost; the nav row: "About") would
+   otherwise drop a 15em-wide box far enough right that it overflows
+   past the edge of the viewport, since `left:0` above anchors the
+   box to its trigger's LEFT edge. Flipping just the last dropdown in
+   each row to anchor from the right edge instead keeps it fully
+   on-screen without affecting every other flyout's left-anchored
+   drop-down direction. */
+#header .primary > li.dropdown:last-of-type .menu,
+#header .user > li.dropdown:last-of-type .menu,
+#header ul.user > li.dropdown:last-of-type .menu {
+  left: auto !important;
+  right: 0 !important;
+}
+
+#header li.dropdown .menu li,
+#header li.dropdown .dropdown-menu li,
+#header li.dropdown > ul li {
+  margin: 0 !important;
+  background: transparent !important;
+  background-image: none !important;
+  border: none !important;
+  border-bottom: 1px solid var(--border-color) !important;
+  box-shadow: none !important;
+}
+
+#header li.dropdown .menu li:last-child,
+#header li.dropdown .dropdown-menu li:last-child,
+#header li.dropdown > ul li:last-child {
+  border-bottom: none !important;
+}
+
+/* display:block with no width set is what makes each <a> fill its
+   row - a block-level element fills its container on its own, no
+   percentage needed, which is exactly the part previous attempts
+   kept getting wrong. Hover paints that whole filled row green. */
+#header li.dropdown .menu a,
+#header li.dropdown .dropdown-menu a,
+#header li.dropdown > ul li a {
+  display: block !important;
+  background: transparent !important;
+  background-image: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  color: var(--heading-color) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.04em !important;
+  font-size: 0.85em !important;
+  line-height: 1.6 !important;
+  padding: 0.5em 1em !important;
+  margin: 0 !important;
+}
+
+#header li.dropdown .menu a:hover,
+#header li.dropdown .menu a:focus,
+#header li.dropdown .dropdown-menu a:hover,
+#header li.dropdown .dropdown-menu a:focus,
+#header li.dropdown > ul li a:hover,
+#header li.dropdown > ul li a:focus {
+  background-color: var(--link-color) !important;
+  background-image: none !important;
+  color: #f2faee !important;
+  text-decoration: none !important;
+}
+
+/* Autocomplete dropdowns (tag fields, etc.) */
+.autocomplete,
+.autocomplete .dropdown,
+.autocomplete ul,
+ul.autocomplete-results {
+  background-color: var(--form-input-bg) !important;
+  background-image: none !important;
+  border: 1px solid var(--border-color) !important;
+  box-shadow: none !important;
+}
+
+.autocomplete li,
+.autocomplete .dropdown li {
+  background-color: transparent !important;
+  color: var(--text-color) !important;
+}
+
+.autocomplete li:hover,
+.autocomplete li.selected,
+.autocomplete .dropdown li:hover,
+.autocomplete .dropdown li.selected {
+  background-color: var(--link-color) !important;
+  color: #f2faee !important;
+}
+
+/* Force footer/outer wrappers to the exact same solid value as the
+   body (rather than "transparent", which can pick up a hairline seam
+   against neighboring wrappers) so the bottom of the page reads as
+   one flat plane. #header is deliberately NOT included here: it has
+   its own dark-green band set once, earlier in this file. Including
+   it in this later, equal-specificity rule used to silently repaint
+   #header's own box back to the light page color, while the nav
+   rows inside it (higher-specificity descendant selectors) stayed
+   dark green - light everywhere the box itself showed through,
+   dark everywhere a nav row covered it, which is exactly what
+   looked like a broken/dotted green bar. */
+#footer,
+.footer,
+#outer,
+#outer .wrapper,
+.wrapper {
+  background-color: var(--main-bg) !important;
+  background-image: none !important;
+}
+
+#footer p,
+#footer li,
+#footer span,
+#footer div,
+.footer p,
+.footer li,
+.footer span,
+.footer div {
+  color: #1a2b1f !important;
+}
+
+.pagination .current {
+  background-color: var(--link-color) !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  color: #f2faee !important;
+  border: 1px solid var(--link-hover) !important;
+  border-radius: 0 !important;
+}
+
+img[src*="red"],
+img[src*="icon_red"],
+img.alert-icon,
+img.error-icon {
+  filter: hue-rotate(90deg) brightness(0.8);
+}
+
+.badge-red,
+.counter-red,
+.notification-badge {
+  background-color: #9ab888 !important;
+  color: #ffffff !important;
+}
+
+#skin-preview-notice,
+.preview-notice {
+  background-color: var(--accent-bg);
+  background-image: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  border-left: 4px solid var(--link-color) !important;
+  border-radius: 0 !important;
+  color: var(--heading-color);
+}
+
+.preview-notice a {
+  color: var(--link-color);
+}
+
+#sidebar .module,
+.sidebar .module,
+#sidebar .box,
+.sidebar .box,
+#sidebar .group,
+.sidebar .group,
+.filters .module,
+.filters .group,
+.filters .box,
+.pagination .module,
+.pagination .box {
+  background-color: transparent !important;
+}
+
+ul,
+ol,
+li,
+dl,
+dt,
+dd,
+p {
+  background-color: transparent;
+  color: var(--text-color);
+}
+
+.work .heading a,
+.blurb .heading a,
+h4.heading a {
+  background-color: transparent !important;
+  color: var(--link-color) !important;
+}
+
+.work .heading a:hover,
+.blurb .heading a:hover {
+  color: var(--link-hover) !important;
+}
